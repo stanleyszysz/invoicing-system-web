@@ -1,0 +1,40 @@
+<form [formGroup]="companyAddFormGroup">
+    <div class="mb-3">
+        <label for="taxIdentifier" class="form-label">Tax Identifier</label>
+        <input type="text" class="form-control" id="taxIdentifier" name="taxIdentifier" formControlName="taxIdentifier">
+      </div>
+      <div class="mb-3">
+        <label for="name" class="form-label">Company name</label>
+        <input type="text" class="form-control" id="company-name" name="company-name" formControlName="name">
+      </div>
+      <div formGroupName="address">
+        <div class="mb-3">
+          <label for="city" class="form-label">City</label>
+         <input type="text" class="form-control" id="city" name="city" formControlName="city">
+        </div>
+        <div class="mb-3">
+          <label for="postalCode" class="form-label">Postal code</label>
+          <input type="text" class="form-control" id="postalCode" name="postalCode" formControlName="postalCode">
+        </div>
+        <div class="mb-3">
+          <label for="streetName" class="form-label">Street name</label>
+          <input type="text" class="form-control" id="streetName" name="streetName" formControlName="streetName">
+        </div>
+        <div class="mb-3">
+          <label for="streetNumber" class="form-label">Street number</label>
+          <input type="text" class="form-control" id="streetNumber" name="streetNumber" formControlName="streetNumber">
+        </div>
+      </div>
+      <div class="mb-3">
+        <label for="pensionInsurance" class="form-label">Pension insurance</label>
+        <input type="number" class="form-control" id="pensionInsurance" name="pensionInsurance" formControlName="pensionInsurance">
+      </div>
+      <div class="mb-3">
+        <label for="healthInsurance" class="form-label">Health insurance</label>
+        <input type="number" class="form-control" id="healthInsurance" name="healthInsurance" formControlName="healthInsurance">
+      </div>
+
+    <button (click)="save()" class="btn btn-primary">
+        Save
+    </button>
+</form>
