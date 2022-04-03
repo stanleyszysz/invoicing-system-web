@@ -15,7 +15,6 @@ export class CompanyAddComponent implements OnInit {
 
   constructor(private companyService: CompanyService, private formBuilder: FormBuilder, private toastrService: ToastrService, private router: Router) { 
     this.companyAddFormGroup = this.formBuilder.group({
-      // companyId: '',
       taxIdentifier: ['', Validators.required],
       name: ['', Validators.required],
       address: this.formBuilder.group({
@@ -39,6 +38,10 @@ export class CompanyAddComponent implements OnInit {
     }, error => {
       this.toastrService.error("Something goes wrong!")
     })
+  }
+
+  navigateToCompanyList() {
+    this.router.navigate(['companies'])
   }
 
 }

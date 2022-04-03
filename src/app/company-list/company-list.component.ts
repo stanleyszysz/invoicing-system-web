@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { CompanyService } from '../services/company.service';
 import { CompanyListModel } from '../model/company.list.model';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-company-list',
@@ -12,7 +13,7 @@ export class CompanyListComponent implements OnInit {
 
   companies: Array<CompanyListModel> = []
 
-  constructor(private companyService: CompanyService, private router: Router) { }
+  constructor(private companyService: CompanyService, private router: Router, private toastrService: ToastrService) { }
 
   ngOnInit(): void {
     this.fetchData();
@@ -31,7 +32,6 @@ export class CompanyListComponent implements OnInit {
   }
 
   navigateToPreview(companyId: string) {
-    console.log("inside navigate preview " + companyId)
     this.router.navigate(['companies', companyId])
   }
 

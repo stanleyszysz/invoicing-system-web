@@ -25,4 +25,13 @@ export class CompanyService {
     return this.httpClient.get<CompanyAddModel>(`${commons.apiBasePath}/${this.path}/${companyId}`)
   }
 
+  public edit(companyId: string, item: CompanyAddModel): Observable<CompanyAddModel>{
+    const resEdit = this.httpClient.patch<CompanyAddModel>(`${commons.apiBasePath}/${this.path}/${companyId}`, item)
+    return resEdit
+  }
+
+  public delete(companyId: string): Observable<void>{
+    return this.httpClient.delete<void>(`${commons.apiBasePath}/${this.path}/${companyId}`)
+  }
+
 }

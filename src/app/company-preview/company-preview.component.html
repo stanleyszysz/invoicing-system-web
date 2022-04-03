@@ -1,9 +1,43 @@
-Company Id: {{companyId}}<br>
-Tax Identifier: {{company.taxIdentifier}}<br>
-Company name: {{company.name}}<br>
-City: {{company.address.city}}<br>
-Postal code: {{company.address.postalCode}}<br>
-Street name: {{company.address.streetName}}<br>
-Street number: {{company.address.streetNumber}}<br>
-Pension insurance: {{company.pensionInsurance}}<br>
-Health insurance: {{company.healthInsurance}}<br>
+<form [formGroup]="companyEditFormGroup">
+    <div class="mb-3">
+      <label for="companyId">CompanyId</label>
+      <input type="text" class="form-control" id="companyId" name="companyId" formControlName="companyId">
+    </div>
+    <div class="mb-3">
+      <label for="taxIdentifier">Tax Identifier</label>
+      <input type="text" class="form-control" id="taxIdentifier" name="taxIdentifier" formControlName="taxIdentifier">
+    </div>
+    <div class="mb-3">
+      <label for="name">Company name</label>
+      <input type="text" class="form-control" id="name" name="name" formControlName="name">
+    </div>
+    <div formGroupName="address">
+      <div class="mb-3">
+      <label for="city" class="form-label">City</label>
+       <input type="text" class="form-control" id="city" name="city" formControlName="city">
+      </div>
+      <div class="mb-3">
+        <label for="postalCode" class="form-label">Postal code</label>
+        <input type="text" class="form-control" id="postalCode" name="postalCode" formControlName="postalCode">
+      </div>
+      <div class="mb-3">
+        <label for="streetName" class="form-label">Street name</label>
+        <input type="text" class="form-control" id="streetName" name="streetName" formControlName="streetName">
+      </div>
+      <div class="mb-3">
+        <label for="streetNumber" class="form-label">Street number</label>
+        <input type="text" class="form-control" id="streetNumber" name="streetNumber" formControlName="streetNumber">
+      </div>
+    </div>
+    <div class="mb-3">
+      <label for="healthInsurance">Health Insurance</label>
+      <input type="text" class="form-control" id="healthInsurance" name="healthInsurance" formControlName="healthInsurance">
+    </div>
+    <div class="mb-3">
+      <label for="pensionInsurance">Pension Insurance</label>
+      <input type="text" class="form-control" id="pensionInsurance" name="pensionInsurance" formControlName="pensionInsurance">
+    </div>
+    <button type="button" class="btn btn-primary" (click)="edit(company.companyId)">Save Changes</button>
+    <button type="button" class="btn btn-outline-danger" (click)="navigateToCompanyList()">Cancel</button>
+    <button type="button" class="btn btn-danger" (click)="delete(company.companyId)">Delete company</button>
+  </form>
