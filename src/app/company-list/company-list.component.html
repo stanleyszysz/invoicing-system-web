@@ -1,6 +1,6 @@
 <div class="wrapper">
   <div class="float-end">
-    <button class="btn btn-primary" (click)="navigateToAddForm()">Add Company</button>
+    <button class="btn btn-primary" (click)="navigateToAddCompanyForm()">Add Company</button>
   </div>
 </div><br>
 <table class="table table-hover table-borderless">
@@ -12,7 +12,7 @@
       </tr>
     </thead>
     <tbody>
-      <tr *ngFor="let company of companies" (click)="navigateToPreview(company.companyId)">
+      <tr *ngFor="let company of companies" (click)="navigateToCompanyPreview(company.companyId)">
         <td>{{company.companyId}}</td>
         <td>{{company.taxIdentifier}}</td>
         <td>{{company.name}}</td>

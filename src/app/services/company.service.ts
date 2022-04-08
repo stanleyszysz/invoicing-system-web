@@ -13,7 +13,7 @@ export class CompanyService {
 
   constructor(private httpClient: HttpClient) { }
 
-  public fetchData(): Observable<Array<CompanyListModel>> {
+  public getAllCompanies(): Observable<Array<CompanyListModel>> {
     return this.httpClient.get<Array<CompanyListModel>>(`${commons.apiBasePath}/${this.path}`);
   }
 

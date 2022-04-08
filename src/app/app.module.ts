@@ -7,16 +7,22 @@ import { AppComponent } from './app.component';
 import { CompanyListComponent } from './company-list/company-list.component';
 import { HttpClientModule } from '@angular/common/http';
 import { CompanyAddComponent } from './company-add/company-add.component';
-import { ReactiveFormsModule } from '@angular/forms';
+import { ReactiveFormsModule, FormArray } from '@angular/forms';
 import { ToastrModule } from 'ngx-toastr';
 import { CompanyPreviewComponent } from './company-preview/company-preview.component';
+import { InvoiceListComponent } from './invoice-list/invoice-list.component';
+import { InvoiceAddComponent } from './invoice-add/invoice-add.component';
+import { InvoicePreviewComponent } from './invoice-preview/invoice-preview.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     CompanyListComponent,
     CompanyAddComponent,
-    CompanyPreviewComponent
+    CompanyPreviewComponent,
+    InvoiceListComponent,
+    InvoiceAddComponent,
+    InvoicePreviewComponent
   ],
   imports: [
     BrowserModule,

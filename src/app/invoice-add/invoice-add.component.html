@@ -1,0 +1,119 @@
+<form [formGroup]="invoiceAddFormGroup">
+    <div class="mb-3">
+      <label for="dateAt" class="form-label">Creation date</label>
+      <input type="text" class="form-control" id="dateAt" name="dateAt" formControlName="dateAt">
+    </div>
+    <div class="mb-3">
+      <label for="number" class="form-label">Invoice number</label>
+      <input type="text" class="form-control" id="invoice-number" name="invoice-number" formControlName="number">
+    </div>
+    <div formGroupName="seller">
+      <div class="mb-3">
+        <label for="taxIdentifier" class="form-label">Tax Identifier</label>
+        <input type="text" class="form-control" id="taxIdentifier" name="taxIdentifier" formControlName="taxIdentifier">
+      </div>
+      <div class="mb-3">
+        <label for="name" class="form-label">Company name</label>
+        <input type="text" class="form-control" id="company-name" name="company-name" formControlName="name">
+      </div>
+      <div formGroupName="address">
+        <div class="mb-3">
+          <label for="city" class="form-label">City</label>
+          <input type="text" class="form-control" id="city" name="city" formControlName="city">
+        </div>
+        <div class="mb-3">
+          <label for="postalCode" class="form-label">Postal code</label>
+          <input type="text" class="form-control" id="postalCode" name="postalCode" formControlName="postalCode">
+        </div>
+        <div class="mb-3">
+          <label for="streetName" class="form-label">Street name</label>
+          <input type="text" class="form-control" id="streetName" name="streetName" formControlName="streetName">
+        </div>
+        <div class="mb-3">
+          <label for="streetNumber" class="form-label">Street number</label>
+          <input type="text" class="form-control" id="streetNumber" name="streetNumber" formControlName="streetNumber">
+        </div>
+      </div>
+      <div class="mb-3">
+        <label for="pensionInsurance" class="form-label">Pension insurance</label>
+        <input type="number" class="form-control" id="pensionInsurance" name="pensionInsurance" formControlName="pensionInsurance">
+      </div>
+      <div class="mb-3">
+        <label for="healthInsurance" class="form-label">Health insurance</label>
+        <input type="number" class="form-control" id="healthInsurance" name="healthInsurance" formControlName="healthInsurance">
+      </div>
+    </div>
+    <div formGroupName="buyer">
+      <div class="mb-3">
+        <label for="taxIdentifier" class="form-label">Tax Identifier</label>
+        <input type="text" class="form-control" id="taxIdentifier" name="taxIdentifier" formControlName="taxIdentifier">
+      </div>
+      <div class="mb-3">
+        <label for="name" class="form-label">Company name</label>
+        <input type="text" class="form-control" id="company-name" name="company-name" formControlName="name">
+      </div>
+      <div formGroupName="address">
+        <div class="mb-3">
+          <label for="city" class="form-label">City</label>
+          <input type="text" class="form-control" id="city" name="city" formControlName="city">
+        </div>
+        <div class="mb-3">
+          <label for="postalCode" class="form-label">Postal code</label>
+          <input type="text" class="form-control" id="postalCode" name="postalCode" formControlName="postalCode">
+        </div>
+        <div class="mb-3">
+          <label for="streetName" class="form-label">Street name</label>
+          <input type="text" class="form-control" id="streetName" name="streetName" formControlName="streetName">
+        </div>
+        <div class="mb-3">
+          <label for="streetNumber" class="form-label">Street number</label>
+          <input type="text" class="form-control" id="streetNumber" name="streetNumber" formControlName="streetNumber">
+        </div>
+      </div>
+      <div class="mb-3">
+        <label for="pensionInsurance" class="form-label">Pension insurance</label>
+        <input type="number" class="form-control" id="pensionInsurance" name="pensionInsurance" formControlName="pensionInsurance">
+      </div>
+      <div class="mb-3">
+        <label for="healthInsurance" class="form-label">Health insurance</label>
+        <input type="number" class="form-control" id="healthInsurance" name="healthInsurance" formControlName="healthInsurance">
+      </div>
+    </div>
+    <div formArrayName="entries">
+      <div *ngFor="let entry of entries.controls; let i = index">
+        <div [formGroupName]="i">
+          <h4>Entry no {{ i + 1 }}</h4>
+          <div class="mb-3">
+            <label for="description" class="form-label">Description</label>
+            <input type="text" class="form-control" id="description" name="description" formControlName="description">
+          </div>
+          <div class="mb-3">
+            <label for="price" class="form-label">Price</label>
+            <input type="number" class="form-control" id="price" name="price" formControlName="price">
+          </div>
+          <div class="mb-3">
+            <label for="vatValue" class="form-label">VAT Value</label>
+            <input type="number" class="form-control" id="vatValue" name="vatValue" formControlName="vatValue">
+          </div>
+          <div class="mb-3">
+            <label for="vatRate" class="form-label">VAT Rate</label>
+            <input type="text" class="form-control" id="vatRate" name="vatRate" formControlName="vatRate">
+          </div>
+            <div formGroupName="carRelatedExpense">
+              <div class="mb-3">
+                <label for="registrationNumber" class="form-label">Car Registration Number</label>
+                <input type="text" class="form-control" id="registrationNumber" name="registrationNumber" formControlName="registrationNumber">
+              </div>
+              <div class="mb-3">
+                <label for="personalUsage">Personal Usage</label>
+                <input type="checkbox" id="personalUsage" name="personalUsage" formControlName="personalUsage">
+              </div>
+            </div>
+            <button type="button" (click)="addEntry()">+ Add another entry</button>
+          </div>
+        </div>
+      </div>
+      
+    <button (click)="save()" class="btn btn-primary">Save</button>
+    <button type="button" class="btn btn-outline-danger" (click)="navigateToInvoiceList()">Cancel</button>
+</form>

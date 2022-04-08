@@ -16,22 +16,22 @@ export class CompanyListComponent implements OnInit {
   constructor(private companyService: CompanyService, private router: Router, private toastrService: ToastrService) { }
 
   ngOnInit(): void {
-    this.fetchData();
+    this.getAllCompanies();
   }
 
-  private fetchData() {
-    this.companyService.fetchData().subscribe(data => {
+  private getAllCompanies() {
+    this.companyService.getAllCompanies().subscribe(data => {
       this.companies = data
     }, error => {
       alert(error.error)
     })
   }
 
-  navigateToAddForm() {
+  navigateToAddCompanyForm() {
     this.router.navigate(['companies', 'new'])
   }
 
-  navigateToPreview(companyId: string) {
+  navigateToCompanyPreview(companyId: string) {
     this.router.navigate(['companies', companyId])
   }
 
